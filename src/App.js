@@ -1,6 +1,6 @@
-import { Header } from './components/Header/header'
-import { Layout } from './components/Layout/layout'
-import { Footer } from './components/Footer/footer'
+import { Header } from './components/Header/'
+import { Layout } from './components/Layout/'
+import { Footer } from './components/Footer/'
 import './App.css';
 import image1 from  './background/bg1.jpeg'
 import image2 from  './background/bg3.jpeg'
@@ -20,7 +20,7 @@ function App() {
   const thirdLayerDescription = 'Удачи в покедоке2';
   return (
     <div className="App">
-      <Header />
+      <Header title="Покедока 2" descr="Игра о ловле покемонов"/>
       <Layout urlBg={urlForBg1} descr={firstLayerDescription} title={firstLayerTitle}/>
       <Layout colorBg={colorBg} descr={secondLayerDescription} title={secondLayerTitle}/>
       <Layout urlBg={urlForBg3} descr={thirdLayerDescription} title={thirdLayerTitle}/>

@@ -11,7 +11,7 @@ export const Layout = ({
   console.log(colorBg);
     const styleLayout = {
       backgroundImage: `url(${urlBg})`,
-      backgroundColor: `${colorBg}`};
+      backgroundColor: colorBg};
 
   return (
     <section
