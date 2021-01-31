@@ -1,13 +1,4 @@
-import { Header } from './components/Header/'
-import { Layout } from './components/Layout/'
-import { Footer } from './components/Footer/'
-import './App.css';
-import image1 from  './background/bg1.jpeg'
-import image2 from  './background/bg3.jpeg'
-import logoIMG from './background/card-back-side.jpeg'
-import { PokemonCard } from './components/Pokemoncard'
-
-const POKEMONS = [
+[
   {
     "abilities": [
       "keen-eye",
@@ -141,48 +132,3 @@ const POKEMONS = [
     }
   }
 ]
-
-function App() {
-  const colorBg = '#fa33bc';
-  const urlForBg1 = image1;
-  const urlForBg3 = image2;
-  const firstLayerTitle = 'ПИУ ПИУ ПАУ ПАУ';
-  const firstLayerDescription = 'АХА ПОПАЛСЯ!!! НУ БЕРЕГИСЬ, ЕСЛИ НЕ СМОЖЕШЬ УНЕСТИ СВОИ НОГИ!!!!';
-  const secondLayerTitle = 'Ты попал в покедоку 2!';
-  const secondLayerDescription ='Это игра, где ты ловишь покемона, или ты сам есть покемон, где ты ловишь самыми ' +
-    'изощрёнными способами покемонов. То есть там ты можешь придумать свою определённую местность, ' +
-    'то есть можешь придумать ту же школу покемонов, так же посадить их туда или поймать. Но там более изощрённая ситуация.' +
-    ' Там ты не изготавливаешь ловушку для покемонов. Тебе даются различные покеболы, ты можешь трейд делать.  ';
-  const thirdLayerTitle = 'Ты можешь делайть трейд покеболами';
-  const thirdLayerDescription = 'Удачи в покедоке2';
-  return (
-    <div className="App">
-      <Header title="Покедока 2" descr="Игра о ловле покемонов"/>
-      <Layout
-        id="rules"
-        urlBg={urlForBg1}
-        title={firstLayerTitle}>
-        <p>{firstLayerDescription}</p>
-      </Layout>
-      <Layout
-        id="cards"
-        colorBg={colorBg}
-        title={secondLayerTitle}>
-        <div className="flex">
-          {
-            POKEMONS.map((item, index) => <PokemonCard key={index} {...item}/>  )
-          }
-        </div>
-      </Layout>
-      <Layout
-        id="about"
-        urlBg={urlForBg3}
-        title={thirdLayerTitle}>
-        {thirdLayerDescription}
-      </Layout>
-      <Footer />
-    </div>
-  );
-}
-
-export default App;
