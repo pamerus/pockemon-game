@@ -3,12 +3,10 @@ import s from './layout.module.css'
 export const Layout = ({
   id,
   title,
-  descr,
   urlBg,
-  colorBg
+  colorBg,
+  children
 }) => {
-  console.log(urlBg);
-  console.log(colorBg);
     const styleLayout = {
       backgroundImage: `url(${urlBg})`,
       backgroundColor: colorBg};
@@ -24,8 +22,8 @@ export const Layout = ({
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className="desc full">
-            <p>{descr}</p>
+          <div className={`${s.desc} ${s.full}`}>
+            {children }
           </div>
         </article>
       </div>
