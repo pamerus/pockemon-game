@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import s from './layout.module.css'
 
 export const Layout = ({
@@ -22,7 +23,7 @@ export const Layout = ({
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className={`${s.desc} ${s.full}`}>
+          <div className={cn(s.desc, s.full)}>
             {children }
           </div>
         </article>
