@@ -12,6 +12,7 @@ const ButtonProg = ( { nameOfButton, onClickButton }) => {
   };
 
   const handleClick = () => { onClickButton && onClickButton(getPageName(nameOfButton)) }
+  
   return(
     <button onClick={handleClick} className={cn(s.buttoncolor, s.buttonsize)}>
       {nameOfButton}

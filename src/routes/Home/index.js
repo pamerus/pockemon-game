@@ -6,7 +6,7 @@ import { PokemonCard } from '../../components/Pokemoncard'
 import image1 from  '../../background/bg1.jpeg'
 import image2 from  '../../background/bg3.jpeg'
 import logoIMG from '../../background/card-back-side.jpeg'
-import './style.module.css';
+import s from './style.module.css';
 
 const POKEMONS = [
   {
@@ -174,7 +174,7 @@ const HomePage = ({onChangePage}) =>{
         id="cards"
         colorBg={colorBg}
         title={secondLayerTitle}>
-        <div className="flex">
+        <div className={s.flex}>
           {
             POKEMONS.map((item, index) => <PokemonCard key={index}  {...item}/>  )
           }
