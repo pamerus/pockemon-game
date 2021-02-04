@@ -1,16 +1,21 @@
 import cn from 'classnames'
 import s from './style.module.css'
 
-const NavBar = () => {
+const NavBar = ( { isOpen, bgActive = false, onClickHamburg }) => {
   return(
-    <nav id="navbar">
+    <nav className={cn(s.navbar, {
+      [s.bgActive] : bgActive
+    })}>
       <div className={s.navWrapper}>
         <p className={s.brand}>
           LOGO
         </p>
-        <a className={cn(s.menuButton, s.active)}>
-          <span/>
-        </a>
+          <div className={cn(s.menuButton, {
+          [s.active] : isOpen
+          })}
+          onClick={onClickHamburg}>
+          <span />
+          </div>
       </div>
     </nav>
   );
