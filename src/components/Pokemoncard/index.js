@@ -13,8 +13,12 @@ export const PokemonCard = (
       onClickCard
     }
   ) =>{
+  const onClick = () => {
+    onClickCard(id);
+  }
+
 return(
-  <div className={s.root} onClick={onClickCard}>
+  <div className={s.root} onClick={onClick}>
     <div className={cn(s.pokemonCard, {[s.active] : isActive})}>
       <div className={s.cardFront}>
         <div className={cn(s.wrap, s.front)}>
