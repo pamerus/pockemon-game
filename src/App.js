@@ -1,4 +1,5 @@
 import { useRouteMatch, Route, Switch, Redirect } from 'react-router-dom'
+
 import HomePage from './routes/Home'
 import GamePage from './routes/Game'
 import MenuHeader from './components/MenuHeader'
@@ -7,6 +8,7 @@ import Contact from './routes/Contact'
 import NotFound from './routes/NotFound'
 import { Footer } from './components/Footer'
 import cn from 'classnames'
+
 import s from './style.module.css'
 
 const App = () => {

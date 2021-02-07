@@ -166,7 +166,7 @@ const  HomePage = ({onChangePage}) =>{
       <Header
         title="Покедока 2"
         descr="Игра о ловле покемонов"
-      onClickButton={handleClickButton}/>
+        onClickButton={handleClickButton}/>
       <Layout
         id="rules"
         urlBg={urlForBg1}
