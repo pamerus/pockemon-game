@@ -143,7 +143,6 @@ const POKEMONS = [
   }
 ]
 
-const HomePage = ({onChangePage}) =>{
   const colorBg = '#fa33bc';
   const urlForBg1 = image1;
   const urlForBg3 = image2;
@@ -156,7 +155,11 @@ const HomePage = ({onChangePage}) =>{
     ' Там ты не изготавливаешь ловушку для покемонов. Тебе даются различные покеболы, ты можешь трейд делать.  ';
   const thirdLayerTitle = 'Ты можешь делайть трейд покеболами';
   const thirdLayerDescription = 'Удачи в покедоке2';
-  const handleClickButton = ( page ) => {    onChangePage && onChangePage(page);  }
+const  HomePage = ({onChangePage}) =>{
+  const handleClickButton = ( page ) => {
+    onChangePage && onChangePage(page);
+  }
+
   return (
     <div className="App">
       <MenuHeader />
