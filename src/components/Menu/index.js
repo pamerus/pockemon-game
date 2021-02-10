@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 const Menu = ({ isOpen }) => {
   const ROUTS_MENU = [
-    {to: "welcome", title: "HOME"},
+    {to: "home", title: "HOME"},
     {to: "game", title: "GAME"},
     {to: "about", title: "ABOUT"},
     {to: "contact", title: "CONTACT"}];

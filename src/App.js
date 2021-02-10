@@ -10,11 +10,14 @@ import { Footer } from './components/Footer'
 import cn from 'classnames'
 
 import s from './style.module.css'
+import { FireBaseContext } from './context/FirebaseContext'
+import Firebase from './service/firebase'
 
 const App = () => {
   const match = useRouteMatch('/');
 
 return (
+  <FireBaseContext.Provider value={new Firebase()}>
     <Switch>
       <Route path="/404" render={NotFound}/>
       <Route>
@@ -38,6 +41,7 @@ return (
         </>
       </Route>
     </Switch>
+  </FireBaseContext.Provider>
 )
 
 };

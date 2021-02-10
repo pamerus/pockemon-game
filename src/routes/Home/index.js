@@ -162,7 +162,7 @@ const  HomePage = ({onChangePage}) =>{
 
   return (
     <div className="App">
-      <MenuHeader />
+      {/*<MenuHeader />*/}
       <Header
         title="Покедока 2"
         descr="Игра о ловле покемонов"
