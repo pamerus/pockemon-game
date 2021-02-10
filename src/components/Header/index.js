@@ -4,7 +4,7 @@ import ButtonProg from '../utils/Button'
 
 export const Header = ({
   title,
-  descr
+  descr,
 }) => {
   const history = useHistory();
   const handleClick = () => {

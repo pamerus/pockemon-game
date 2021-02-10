@@ -7,7 +7,7 @@ const ButtonProg = ( { nameOfButton, onClickButton }) => {
       return ('game');
     }
     else if (nameOfButton === 'Go back home'){
-      return ('app');
+      return ('home');
     }
   };
 
