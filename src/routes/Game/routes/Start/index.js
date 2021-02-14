@@ -6,11 +6,13 @@ import Firebase from '../../../../service/firebase'
 
 import s from './style.module.css'
 import { FireBaseContext } from '../../../../context/FirebaseContext'
+import { PokemonContext } from '../../../../context/pokemonContext'
 
 const StartPage = () => {
   const nameButton = 'Go back home';
   const history = useHistory();
   const firebase = useContext(FireBaseContext);
+  const pokemonsContext = useContext(PokemonContext);
 
   const onChangePage = () => {
     history.push('/home')
@@ -30,65 +32,50 @@ const StartPage = () => {
     });
   }
 
-  const pokemonAdditional = {
-    "active": true,
-    "abilities": [
-      "keen-eye",
-      "tangled-feet",
-      "big-pecks"
-    ],
-    "stats": {
-      "hp": 63,
-      "attack": 60,
-      "defense": 55,
-      "special-attack": 50,
-      "special-defense": 50,
-      "speed": 71
-    },
-    "type": "flying",
-    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
-    "name": "pidgeotto",
-    "base_experience": 122,
-    "height": 11,
-    "id": 17,
-    "values": {
-      "top": "A",
-      "right": 2,
-      "bottom": 7,
-      "left": 5
-    }
-  };
-
   const [pokemons, setPokemons] = useState( {} );
   const [clickAdd, addPok] = useState(false);
 
   useEffect(() => {
     firebase.getPokemonSoket((pokemons)=>{
       setPokemons(pokemons);
-    })
+    });
+    return () => firebase.offPokemonSoket();
   }, [clickAdd]);
 
-const addPokemon = () => {
-  const data = pokemonAdditional;
-  firebase.addPokemon(data, async ()=>{
-  })
+const handleChangeSelected = (key) => {
+  const pokemon = {...pokemons[key]}
+  pokemonsContext.onSelectedPokemons(key);
+
+  setPokemons(prevState => ({
+    ...prevState,
+    [key]: {
+      ...prevState[key],
+      selected: !prevState[key].selected
+    }
+  }))
+}
 
   addPok(clickAdd => !clickAdd);
-  console.log(clickAdd);
+
+const handlerStartGameClick = () => {
+  history.push('/game/board');
 }
 
   return (
     <div>
       THIS IS GAME PAGE!
       <div className={s.flex}>
-        <button onClick={addPokemon}>
-          ADD NEW POKEMON
+        <button
+          onClick={handlerStartGameClick}
+          disabled={Object.keys(pokemonsContext.pokemons).length < 5}>
+          Start Game
         </button>
       </div>
       <div className={s.flex}>
         {
-          Object.entries(pokemons).map(([key, {name, img, id, type, values, active}]) => (
+          Object.entries(pokemons).map(([key, {name, img, id, type, values, selected}]) => (
             <PokemonCard
+              className={s.card}
               key={key}
               name={name}
               img={img}
@@ -96,7 +83,12 @@ const addPokemon = () => {
               type={type}
               values={values}
               isActive={true}
-              onClickCard={handleActive}
+              isSelected={selected}
+              onClickCard={() => {
+                if (Object.keys(pokemonsContext.pokemons).length < 5 || selected){
+                  handleChangeSelected(key);
+                }
+              }}
             />))
         }
       </div>

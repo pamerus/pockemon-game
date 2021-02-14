@@ -11,10 +11,10 @@ const firebaseConfig = {
   appId: "1:927123012587:web:b01a5324017b797b0cb7ae"
 };
 
+firebase.initializeApp(firebaseConfig);
+
 class Firebase {
   constructor () {
-    firebase.initializeApp(firebaseConfig);
-
     this.fire = firebase;
     this.database = this.fire.database();
   }
@@ -37,6 +37,10 @@ class Firebase {
   addPokemon = (data, cb) => {
     const newKey = this.database.ref().child('pokemons').push().key;
     this.database.ref('pokemons/' + newKey).set(data).then(()=>cb());
+  }
+
+  offPokemonSoket = (cb) => {
+    this.database.ref('pokemons').off();
   }
 }
 
